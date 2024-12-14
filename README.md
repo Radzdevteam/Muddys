@@ -41,7 +41,10 @@ dependencyResolutionManagement {
 ### Step 3. add the following code in your **application module's `build.gradle`** file:
 
    ```groovy
+plugins {
     id("muddy-plugin")
+}
+
 
 muddy {
     includes = ["com.radzdev.test"]
