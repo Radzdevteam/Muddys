@@ -42,6 +42,10 @@ dependencyResolutionManagement {
 
    ```groovy
     id("muddy-plugin")
+
+muddy {
+    includes = ["com.radzdev.test"]
+}
    
    dependencies {
        implementation("io.github.porum:muddy:2.0.0")
