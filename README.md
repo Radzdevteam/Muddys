@@ -7,26 +7,44 @@ Muddy is a android gradle plugin that can obfuscate the const string in APK.
 
 ## Usage
 
-1. include the following `classpath` in your **top level `build.gradle`** file:
-
-   ```groovy
-   buildscript {
-       repositories {
-           mavenCentral()
-       }
-       dependencies {
-           classpath "io.github.porum:muddy-gradle-plugin:$VERSION"
-       }
-   }
+### Step 1. Add the repository to your project settings.gradle:
+```groovy
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
    ```
 
-2. add the following code in your **application module's `build.gradle`** file:
+### Step 2. include the following `classpath` in your **top level `build.gradle`** file:
 
    ```groovy
-   apply plugin: "muddy-plugin"
+  buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        flatDir {
+            dirs("libs")
+        }
+    }
+
+    dependencies {
+        classpath("io.github.porum:muddy-gradle-plugin:2.0.2")
+    }
+}
+   ```
+
+### Step 3. add the following code in your **application module's `build.gradle`** file:
+
+   ```groovy
+    id("muddy-plugin")
    
    dependencies {
-       implementation "io.github.porum:muddy:$VERSION"
+       implementation("io.github.porum:muddy:2.0.0")
    }
    ```
 
