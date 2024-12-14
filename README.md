@@ -47,7 +47,7 @@ plugins {
 
 
 muddy {
-    includes = ["com.radzdev.test"]
+    includes = listOf("com.radzdev.muddytest")
 }
    
    dependencies {
